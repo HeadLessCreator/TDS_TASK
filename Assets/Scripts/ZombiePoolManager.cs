@@ -12,7 +12,7 @@ public class ZombiePoolManager : MonoBehaviour
 {
     public static ZombiePoolManager Instance { get; private set; }
 
-    [Header("풀링에 사용할 좀비 Prefab들 (ID 순서대로)")]
+    [Header("풀링에 사용할 좀비 Prefab들 (ID 순서대로!)")]
     [Tooltip("예: 0번 인덱스에 Zombie0 Prefab, 1번 인덱스에 Zombie1 Prefab, 2번 인덱스에 Zombie2 Prefab.")]
     public GameObject[] zombiePrefabs;
 
@@ -64,7 +64,7 @@ public class ZombiePoolManager : MonoBehaviour
             return null;
         }
 
-        // id에 해당하는 prefab을 Instantiate
+        // ID에 해당하는 prefab을 Instantiate
         GameObject prefab = zombiePrefabs[id];
         if (prefab == null)
         {
@@ -145,14 +145,11 @@ public class ZombiePoolManager : MonoBehaviour
         zombie.transform.position = position;
         zombie.transform.rotation = Quaternion.identity;
 
-        // 해당 ZombieController에 spawnerID 할당
+        // 해당 ZombieController에 spawnerID 할당!!
         ZombieController zc = zombie.GetComponent<ZombieController>();
         if (zc != null)
         {
             zc.spawnerID = spawnerID;
-            // 아래 코드를 추가하면, 씬에서 인스펙터 레이어 설정을 자동으로 맞출 수 있다면 옵션:
-            // zombie.layer = LayerMask.NameToLayer("Zombie" + spawnerID);
-            // (※ 이 부분은 이미 Prefab → Layer를 프리팹에서 “Zombie{id}” 로 맞춰 두었다면 필요 없음)
         }
 
         // 활성화 → OnEnable()에서 초기화 로직 실행

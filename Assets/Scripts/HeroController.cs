@@ -39,7 +39,7 @@ public class HeroController : MonoBehaviour
         if (attackSpeed <= 0f) attackSpeed = 1f;
         attackInterval = 1f / attackSpeed;
 
-        // 1) 배열에 들어온 LayerMask들을 OR 연산으로 합쳐서 하나의 int 마스크로 만든다.
+        // 배열에 들어온 LayerMask들을 OR 연산으로 합쳐서 하나의 int 마스크로 만든다.
         combinedZombieMask = 0;
         foreach (LayerMask lm in zombieLayerMasks)
         {
@@ -96,6 +96,7 @@ public class HeroController : MonoBehaviour
         }
     }
 
+    //공격 범위 드로잉
     void OnDrawGizmosSelected()
     {
         if (attackPoint == null) return;

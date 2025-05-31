@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombieSpawner : MonoBehaviour
 {
     [Header("스폰 설정")]
-    [Tooltip("Spawner 고유 ID (인스펙터에서 할당)")]
+    [Tooltip("Spawner 고유 ID")]
     public int thisSpawnerID; // 인스펙터에서 할당
 
     [Tooltip("좀비 스폰 간격(초)")]

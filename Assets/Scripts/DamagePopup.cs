@@ -13,7 +13,7 @@ public class DamagePopup : MonoBehaviour
     [Tooltip("팝업이 화면에 떠 있는 총 시간 (초)")]
     public float lifeTime = 1f;
 
-    [Tooltip("위로 떠오르는 속도 (유닛/초)")]
+    [Tooltip("위로 떠오르는 속도")]
     public float floatSpeed = 1f;
 
     private TextMeshPro textMesh;

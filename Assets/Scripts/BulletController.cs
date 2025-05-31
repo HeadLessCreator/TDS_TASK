@@ -13,7 +13,7 @@ public class BulletController : MonoBehaviour
     public int damageAmount = 10;
 
     [Header("다수의 좀비 레이어(인스펙터에 배열로 추가)")]
-    [Tooltip("인스펙터에서 'ZombieRow0', 'ZombieRow1', 'ZombieRow2' 등을 모두 추가하세요.")]
+    [Tooltip("인스펙터에서 'ZombieRow0', 'ZombieRow1', 'ZombieRow2' 등을 모두 추가")]
     public LayerMask[] zombieLayerMasks;
 
     [Tooltip("총알이 자동 파괴되기 전 최대 생존 시간(초)")]
@@ -61,11 +61,10 @@ public class BulletController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // 충돌한 오브젝트의 레이어가, OR 연산된 combinedZombieMask 비트마스크 안에 있는지 확인
-        //    (1 << other.gameObject.layer) 은 'other' 오브젝트 레이어의 비트 위치를 가리킴
-        //    & combinedZombieMask != 0 이면 “해당 레이어가 포함되어 있다”는 뜻
+        //    (1 << other.gameObject.layer) 은 other 오브젝트 레이어의 비트 위치
+        //    & combinedZombieMask != 0 이면 해당 레이어가 포함되어 있다는 의미
         if (((1 << other.gameObject.layer) & combinedZombieMask) != 0)
-        {
-            // 좀비라면 데미지 입히기
+        {            
             ZombieController zombie = other.GetComponent<ZombieController>();
             if (zombie != null)
             {

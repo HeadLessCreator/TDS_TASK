@@ -147,7 +147,7 @@ public class ZombieController : MonoBehaviour
     }
 
     /// <summary>
-    /// Run 상태에서 매 프레임마다 “상태 전환 여부”를 검사.
+    /// Run 상태에서 매 프레임마다 “상태 전환 여부”를 검사
     /// - 영웅 높이보다 올라가 있으면 점프 시도 안함
     /// </summary>
     void Run_StateUpdate()
@@ -221,7 +221,7 @@ public class ZombieController : MonoBehaviour
     }
 
     /// <summary>
-    /// Jump 상태에서 매 프레임마다 “상태 전환 여부” 검사
+    /// Jump 상태에서 매 프레임마다 상태 전환 여부 검사
     /// - 영웅 높이보다 올라가 있으면 점프 시도 자체를 막음
     /// </summary>
     void Jump_StateUpdate()
@@ -269,7 +269,7 @@ public class ZombieController : MonoBehaviour
     }
 
     /// <summary>
-    /// Attack 상태에서 매 프레임마다 “상태 전환 여부”를 검사
+    /// Attack 상태에서 매 프레임마다 상태 전환 여부를 검사
     /// - 트럭이 더 이상 앞에 없으면 Run으로 복귀
     /// - 아래 좀비가 밀려들어오면 밀어내기 호출
     /// </summary>
@@ -418,7 +418,7 @@ public class ZombieController : MonoBehaviour
     //좀비 바로 앞 검사
     bool IsTooCloseToFrontZombie()
     {
-        // ① 동적 레이어 명: "Zombie" + spawnerID
+        // 동적 레이어 명: "Zombie" + spawnerID
         int myZombieMask = LayerMask.GetMask("Zombie" + spawnerID);
 
         // "Zombie" 레이어만 검출
@@ -472,10 +472,8 @@ public class ZombieController : MonoBehaviour
     bool HasZombieBehind()
     {
         int myZombieMask = LayerMask.GetMask("Zombie" + spawnerID);
-
         Collider2D hit = OverlapCheck(behindCheck, checkBoxSize, myZombieMask, Color.magenta);
 
-        // 디버그 시각화
         DebugDrawBox(behindCheck.position, checkBoxSize, Color.magenta);
 
         backZombie = null;
@@ -497,7 +495,6 @@ public class ZombieController : MonoBehaviour
     public bool HasZombieOnTop()
     {
         int myZombieMask = LayerMask.GetMask("Zombie" + spawnerID);
-
         Collider2D hit = OverlapCheck(topCheck, checkBoxSize, myZombieMask, Color.cyan);
 
         topZombie = null;
@@ -538,7 +535,7 @@ public class ZombieController : MonoBehaviour
     //땅 위에 착지 검사
     public bool IsGrounded()
     {
-        // ② 동적 레이어 명: "Ground" + spawnerID
+        // 동적 레이어 명: "Ground" + spawnerID
         int myGroundMask = LayerMask.GetMask("Ground" + spawnerID);
 
         Collider2D hit = OverlapCheck(bottomCheck, checkBoxSize, myGroundMask, Color.red);
