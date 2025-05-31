@@ -13,7 +13,7 @@ public class TruckBlock : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //Debug.Log($"HP LEFT: {hp}");
+        //Debug.Log($"HP LEFT: {CurrentHP}");
     }
 }
 

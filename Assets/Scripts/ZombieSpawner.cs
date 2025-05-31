@@ -4,35 +4,29 @@ using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    public GameObject zombiePrefab;
+    [Header("스폰 설정")]
+    [Tooltip("Spawner 고유 ID (인스펙터에서 할당)")]
     public int thisSpawnerID; // 인스펙터에서 할당
+
+    [Tooltip("좀비 스폰 간격(초)")]
     public float spawnInterval = 1.0f;
-    public float fixedY = 0f; //개별 스포너의y축 설정
 
-    //public int tempMax = 2;
-    //public int tempCount = 0;
+    [Tooltip("스폰될 좀비의 고정 Y 좌표")]
+    public float fixedY = 0f;
 
-    void Start()
+    private void Start()
     {
         StartCoroutine(SpawnRoutine());
     }
 
-    void SpawnZombie()
+    private void SpawnZombie()
     {
-        //if (tempCount < tempMax)
-        //{
-        //    Vector3 spawnPos = new Vector3(transform.position.x, fixedY, transform.position.z);
-        //    GameObject zombie = Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
-        //    zombie.GetComponent<ZombieController>().spawnerID = thisSpawnerID;
-        //    tempCount++;
-        //}
-
+        // 풀 매니저를 통해 "thisSpawnerID"에 해당하는 좀비를 꺼내 활성화
         Vector3 spawnPos = new Vector3(transform.position.x, fixedY, transform.position.z);
-        GameObject zombie = Instantiate(zombiePrefab, spawnPos, Quaternion.identity);
-        zombie.GetComponent<ZombieController>().spawnerID = thisSpawnerID;
+        ZombiePoolManager.Instance.SpawnZombieAt(spawnPos, thisSpawnerID);
     }
 
-    IEnumerator SpawnRoutine()
+    private IEnumerator SpawnRoutine()
     {
         while (true)
         {
@@ -40,6 +34,5 @@ public class ZombieSpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnInterval);
         }
     }
-
 }
 

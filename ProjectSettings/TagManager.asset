@@ -8,20 +8,21 @@ TagManager:
   - Zombie
   - Truck
   - Ground
+  - HeightLimit
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Zombie
+  - 
   - Water
   - UI
   - Hero
-  - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground0
+  - Ground1
+  - Ground2
+  - Zombie0
+  - Zombie1
+  - Zombie2
   - 
   - 
   - 

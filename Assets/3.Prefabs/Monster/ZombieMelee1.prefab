@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 9074508562199045004}
   - component: {fileID: 3972783636666064359}
   - component: {fileID: 3774678897357845380}
-  m_Layer: 3
-  m_Name: ZombieMelee
+  m_Layer: 11
+  m_Name: ZombieMelee1
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -137,24 +137,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  spawnerID: 0
+  spawnerID: 1
   runSpeed: 2
   jumpForce: 150
   forwardForce: 70
-  hp: 3
+  MaxHP: 10
+  CurrentHP: 0
   attackDamage: 1
   minDistanceToFrontZombie: 0.02
   minDistanceToBackZombie: 0.05
-  thisJumpTarget: {fileID: 1431888369120597236}
-  jumpDuration: 0.7
-  isJumping: 0
   topCheck: {fileID: 8603434851059911769}
   behindCheck: {fileID: 4543006531692084375}
   bottomCheck: {fileID: 1308555832350084075}
   frontCheck: {fileID: 4453430770712348534}
   checkBoxSize: {x: 0.2, y: 0.2}
   frontCheckBoxSize: {x: 0.02, y: 0.2}
-  pushForce: {x: 0.5, y: 0, z: 0}
+  pushForce: {x: 0.8, y: 0, z: 0}
+  damagePopupPrefab: {fileID: 8522849257070477837, guid: 89b29aa9f867ee0489cf29badb51034d, type: 3}
+  popupOffset: {x: 0, y: 1.25, z: 0}
+  hasAppliedForwardForce: 0
   isPushed: 0
 --- !u!1 &605032983250351965
 GameObject:
@@ -165,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4543006531692084375}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: behindCheckBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4453430770712348534}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: frontCehckBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1308555832350084075}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: belowCheckBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +259,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5549818585384498318}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: headPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1395318751277446472}
   - component: {fileID: 7928511827763145290}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: arm_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4491516224192526601}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: leg_lPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1431888369120597236}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: jumpTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +439,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1390984449423877832}
   - component: {fileID: 6012614561082821375}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: leg_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4117193198607075230}
   - component: {fileID: 7969222207150852787}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -605,7 +606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5034332594619086819}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: arm_lPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9047505522530119778}
   - component: {fileID: 4391178048448326450}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -721,7 +722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8603434851059911769}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: topCheckBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4121376888754406373}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: arm_rPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,7 +785,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1639109334033341928}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: bodyPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -822,7 +823,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1795158308826264389}
   - component: {fileID: 2228757155372488290}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: leg_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +907,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2488240717351641533}
   - component: {fileID: 6851911621866096364}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: arm_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8238610049920116614}
-  m_Layer: 3
+  m_Layer: 11
   m_Name: leg_rPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
